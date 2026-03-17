@@ -21,12 +21,12 @@ Enterprise-grade Agent deployment cloud service. Create, configure, and manage A
 
 ## COCO's Competitive Edge
 
-| | Advantage | Description |
-|---|---|---|
-| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with a five-layer memory architecture, superior to Lobster/OpenClaw for enterprise long-term scenarios |
-| 🔓 | **Open & Free** | Best models + best Agent frameworks — maximize Agent capability with zero vendor lock-in |
-| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) to maximize Agent team productivity |
-| 📋 | **Vertical Use Cases** | 101 industry cases / 101 profession cases / 1001 production cases — ready to deploy |
+| | Advantage | Description | Link |
+|---|---|---|---|
+| 🧠 | **Proprietary Agent Runtime** | Zylos — five-layer memory, superior to 🦞Lobster/OpenClaw | [labs.coco.xyz/zylos-core](https://labs.coco.xyz/zylos-core/) |
+| 🔓 | **Open & Free** | Best models + best Agent frameworks, zero vendor lock-in | [labs.coco.xyz](https://labs.coco.xyz) |
+| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) | [labs.coco.xyz](https://labs.coco.xyz) |
+| 📋 | **Vertical Use Cases** | 101 industry / 101 profession / 1001 production cases | [docs.coco.xyz](https://docs.coco.xyz) |
 
 ## Core Team
 
@@ -38,8 +38,8 @@ With over two years of deep research and engineering practice in AI Agents, we a
 
 | Location | Description |
 |----------|-------------|
-| **Singapore (HQ)** | COCO AI PTE. LTD. — Registered headquarters and global business center |
-| **Shenzhen (R&D)** | Technology R&D office — Engineering team and product development center |
+| **Singapore (Global HQ)** | COCO AI PTE. LTD. |
+| **Shenzhen (China HQ)** | Technology R&D and Engineering Center |
 
 ## What Makes COCO Different
 
