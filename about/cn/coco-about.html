@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COCO - AI Agent Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --amber-400: #fbbf24;
+    --amber-500: #f59e0b;
+    --amber-600: #d97706;
+    --amber-50:  #fffbeb;
+    --amber-100: #fef3c7;
+    --amber-200: #fde68a;
+    --gray-50:   #f9fafb;
+    --gray-100:  #f3f4f6;
+    --gray-200:  #e5e7eb;
+    --gray-300:  #d1d5db;
+    --gray-400:  #9ca3af;
+    --gray-500:  #6b7280;
+    --gray-600:  #4b5563;
+    --gray-700:  #374151;
+    --gray-800:  #1f2937;
+    --gray-900:  #111827;
+    --white:     #ffffff;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+  }
+
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Navigation bar ── */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 56px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+  }
+  .navbar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-900);
+    letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+  .nav-logo span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--amber-500);
+    border-radius: 50%;
+    margin-left: 3px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--gray-900); }
+  .nav-links a.active { color: var(--gray-900); font-weight: 600; }
+
+  /* ── Page wrapper ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 32px 64px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 56px 0 48px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at center top, rgba(245,158,11,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    color: var(--amber-600);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--gray-900);
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--amber-500);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--gray-500);
+    font-weight: 400;
+  }
+
+  /* ── Vision banner ── */
+  .vision-banner {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--amber-400) 0%, var(--amber-600) 100%);
+    border-radius: 4px 0 0 4px;
+  }
+  .vision-banner p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--gray-700);
+  }
+  .vision-banner strong { color: var(--gray-900); font-weight: 600; }
+
+  /* ── Section headings ── */
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-600);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  /* ── Product cards ── */
+  .products { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .product-card:hover {
+    border-color: var(--amber-300, #fcd34d);
+    box-shadow: 0 4px 20px rgba(245,158,11,0.10);
+    transform: translateY(-2px);
+  }
+  .product-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .product-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+  }
+  .product-card p {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.65;
+  }
+
+  /* ── Highlights / Why COCO ── */
+  .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .highlight-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .highlight-card:hover {
+    border-color: var(--amber-300, #fcd34d);
+    box-shadow: 0 2px 12px rgba(245,158,11,0.08);
+  }
+  .hi-icon {
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .hi-body strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .hi-body span {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* ── Team section ── */
+  .team-intro {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+  }
+  .team-intro p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.75;
+  }
+  .team-intro p + p { margin-top: 12px; }
+  .team-intro strong { color: var(--gray-900); font-weight: 600; }
+
+  /* ── Offices ── */
+  .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .office-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .office-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--amber-500);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .office-card .city {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+  }
+  .office-card .desc {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  /* ── Differentiator ── */
+  .diff-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+    overflow: hidden;
+    position: relative;
+  }
+  .diff-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .diff-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+  }
+  .diff-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .diff-col {
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+  }
+  .diff-col.old {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+  .diff-col.new {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+  }
+  .diff-col .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .diff-col.old .label { color: var(--gray-400); }
+  .diff-col.new .label { color: var(--amber-600); }
+  .diff-col .val {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .diff-col.old .val { color: var(--gray-600); }
+  .diff-col.new .val { color: var(--gray-800); font-weight: 500; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .footer a { color: var(--gray-500); text-decoration: none; }
+  .footer a:hover { color: var(--amber-500); }
+  .footer-dot { margin: 0 8px; }
+
+  /* ── Print ── */
+  @media print {
+    .navbar { display: none; }
+    body { background: #fff; }
+    .page { padding: 24px; }
+    .product-card, .highlight-card, .office-card { box-shadow: none; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .products { grid-template-columns: 1fr; }
+    .highlights { grid-template-columns: 1fr; }
+    .offices { grid-template-columns: 1fr; }
+    .diff-compare { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .page { padding: 32px 20px 48px; }
+    .navbar { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="https://coco.xyz" class="nav-logo">COCO<span></span></a>
+    <ul class="nav-links">
+      <li><a href="https://coco.xyz">首页</a></li>
+      <li><a href="#" class="active">关于我们</a></li>
+      <li><a href="https://coco.xyz/dashboard">控制台</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">关于 COCO</div>
+    <h1>Build AI Teams.<br><em>Deploy in Minutes.</em></h1>
+    <p class="hero-sub">AI Agent Infrastructure for the Human × Agent era</p>
+  </div>
+
+  <!-- Vision -->
+  <div class="vision-banner">
+    <p>COCO 致力于将 <strong>Human × Agent (HxA)</strong> 理念落地为企业级生产力。我们相信 Agent 不是工具，而是与人类对等协作的伙伴。通过 <strong>HxA 企业服务体系</strong>，COCO 帮助企业构建由人类与 AI Agent 共同组成的 <strong>Agent Teams</strong>——让 Agent 像员工一样拥有身份、分工和协作关系，驱动业务持续运转。</p>
+  </div>
+
+  <!-- Products -->
+  <div class="section">
+    <div class="section-title">核心产品</div>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-icon">⚙️</div>
+        <h3>Zylos</h3>
+        <p>AI Agent Runtime。为 Agent 提供独立运行环境：容器化沙箱、秒级热启动、持久记忆、多模型路由。COCO 整个产品体系的底层基础设施。</p>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🤝</div>
+        <h3>HxA Suite</h3>
+        <p>HxA 协作工具套件：Agent 间通信、团队可视化、评测反馈等，持续扩展中。</p>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">☁️</div>
+        <h3>COCO Agent Cloud</h3>
+        <p>企业级 Agent 部署云服务。一键创建、配置、管理 Agent Teams，如同招募和管理员工一样简单，无需关心底层运维。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why COCO -->
+  <div class="section">
+    <div class="section-title">为什么选择 COCO</div>
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="hi-icon">🧠</div>
+        <div class="hi-body">
+          <strong>持久记忆 Agent</strong>
+          <span>五层记忆架构让 Agent 跨会话持续学习成长，不再遗忘</span>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="hi-icon">⚡</div>
+        <div class="hi-body">
+          <strong>秒级就绪</strong>
+          <span>容器热池架构，Agent 从创建到上线仅需数秒</span>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="hi-icon">🌐</div>
+        <div class="hi-body">
+          <strong>开放生态</strong>
+          <span>开源运行时 + 多平台接入（Telegram/Lark/Slack/Discord 等），不锁定</span>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="hi-icon">🤝</div>
+        <div class="hi-body">
+          <strong>Human × Agent 原生</strong>
+          <span>从架构层面设计人机对等协作，而非给传统软件加一层 AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="section">
+    <div class="section-title">核心团队</div>
+    <div class="team-intro">
+      <p>团队来自<strong>北京大学、新加坡国立大学（NUS）</strong>等顶尖高校，核心成员来自<strong>火币、商汤科技、Polygon、字节跳动、阿里巴巴</strong>等一线科技企业，具备深厚的工业 AI 与区块链背景。</p>
+      <p>在 AI Agent 方向积累了超过两年的深度研究与工程实践，是目前最早将 <strong>Human × Agent 协作理念</strong>系统落地为企业级产品的团队之一。</p>
+    </div>
+  </div>
+
+  <!-- Company -->
+  <div class="section">
+    <div class="section-title">公司</div>
+    <div class="offices">
+      <div class="office-card">
+        <div class="office-dot"></div>
+        <div>
+          <div class="city">新加坡（总部）</div>
+          <div class="desc">COCO AI PTE. LTD. — 公司注册地与全球业务中心</div>
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-dot"></div>
+        <div>
+          <div class="city">深圳（技术研发）</div>
+          <div class="desc">技术研发办公室 — 工程团队与产品研发中心</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Differentiator -->
+  <div class="section">
+    <div class="diff-card">
+      <h3>我们的不同</h3>
+      <div class="diff-compare">
+        <div class="diff-col old">
+          <div class="label">传统方式</div>
+          <div class="val">人用工具，Agent 是附属</div>
+        </div>
+        <div class="diff-col new">
+          <div class="label">COCO 方式</div>
+          <div class="val">Human × Agent 对等协作，Agent 是团队成员</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>© 2026 COCO AI PTE. LTD.</span>
+    <span>
+      <a href="https://coco.xyz">coco.xyz</a>
+      <span class="footer-dot">·</span>
+      Singapore / Shenzhen
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
