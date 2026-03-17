@@ -1,6 +1,6 @@
 # COCO
 
-**Where Human × Agent Collaboration Becomes Real**
+**Build AI Teams. Deploy in Minutes.**
 
 ---
 
