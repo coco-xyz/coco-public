@@ -19,14 +19,12 @@ The HxA collaboration toolkit: Agent-to-Agent communication, team visualization,
 ### COCO Agent Cloud
 Enterprise-grade Agent deployment cloud service. Create, configure, and manage Agent Teams with one click — as simple as hiring and managing employees, with zero infrastructure overhead.
 
-## COCO's Competitive Edge
+## What Makes Us Different
 
-| | Advantage | Description | Link |
-|---|---|---|---|
-| 🧠 | **Proprietary Agent Runtime** | Zylos — five-layer memory, superior to OpenClaw | [labs.coco.xyz/zylos-core](https://labs.coco.xyz/zylos-core/) |
-| 🔓 | **Open & Free** | Best models + best Agent frameworks, zero vendor lock-in | [labs.coco.xyz](https://labs.coco.xyz) |
-| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) | [labs.coco.xyz](https://labs.coco.xyz) |
-| 📋 | **Vertical Use Cases** | 101 industry / 101 profession / 1001 production cases | [docs.coco.xyz](https://docs.coco.xyz) |
+| | |
+|---|---|
+| **Traditional Approach** | Humans use tools; Agents are subordinate |
+| **The COCO Way** | Human × Agent equal collaboration — Agents are team members |
 
 ## Core Team
 
@@ -45,7 +43,7 @@ With over two years of deep research and engineering practice in AI Agents, we a
 
 | | Differentiator | Description |
 |---|---|---|
-| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with superior memory over Lobster/OpenClaw, built for enterprise scenarios |
+| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with superior memory over OpenClaw, built for enterprise scenarios |
 | 🔓 | **Open & Free** | Best models + best Agent frameworks — maximize Agent capability with zero vendor lock-in |
 | 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) to maximize Agent team productivity |
 | 📋 | **Vertical Use Cases** | 101 industry cases / 101 profession cases / 1001 production cases — ready to deploy |
