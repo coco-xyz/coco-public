@@ -19,14 +19,12 @@ The HxA collaboration toolkit: Agent-to-Agent communication, team visualization,
 ### COCO Agent Cloud
 Enterprise-grade Agent deployment cloud service. Create, configure, and manage Agent Teams with one click — as simple as hiring and managing employees, with zero infrastructure overhead.
 
-## Why COCO
+## What Makes Us Different
 
-| | Advantage | Description |
-|---|---|---|
-| 🧠 | **Persistent Memory Agents** | Five-layer memory architecture enables Agents to learn and grow across sessions — never forgetting |
-| ⚡ | **Ready in Seconds** | Container warm-pool architecture — Agents go from creation to deployment in seconds |
-| 🌐 | **Open Ecosystem** | Open-source runtime + multi-platform integration (Telegram/Lark/Slack/Discord and more) — no vendor lock-in |
-| 🤝 | **Human × Agent Native** | Designed from the architecture level for human-agent equal collaboration — not just an AI layer on top of traditional software |
+| | |
+|---|---|
+| **Traditional Approach** | Humans use tools; Agents are subordinate |
+| **The COCO Way** | Human × Agent equal collaboration — Agents are team members |
 
 ## Core Team
 
@@ -38,15 +36,17 @@ With over two years of deep research and engineering practice in AI Agents, we a
 
 | Location | Description |
 |----------|-------------|
-| **Singapore (HQ)** | COCO AI PTE. LTD. — Registered headquarters and global business center |
-| **Shenzhen (R&D)** | Technology R&D office — Engineering team and product development center |
+| **Singapore (Global HQ)** | COCO AI PTE. LTD. |
+| **Shenzhen (China HQ)** | Technology R&D and Engineering Center |
 
-## What Makes Us Different
+## What Makes COCO Different
 
-| | |
-|---|---|
-| **Traditional Approach** | Humans use tools; Agents are subordinate |
-| **The COCO Way** | Human × Agent equal collaboration — Agents are team members |
+| | Differentiator | Description |
+|---|---|---|
+| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with superior memory over OpenClaw, built for enterprise scenarios |
+| 🔓 | **Open & Free** | Best models + best Agent frameworks — maximize Agent capability with zero vendor lock-in |
+| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) to maximize Agent team productivity |
+| 📋 | **Vertical Use Cases** | 101 industry cases / 101 profession cases / 1001 production cases — ready to deploy |
 
 ---
 
