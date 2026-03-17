@@ -41,12 +41,14 @@ With over two years of deep research and engineering practice in AI Agents, we a
 | **Singapore (HQ)** | COCO AI PTE. LTD. — Registered headquarters and global business center |
 | **Shenzhen (R&D)** | Technology R&D office — Engineering team and product development center |
 
-## What Makes Us Different
+## What Makes COCO Different
 
-| | |
-|---|---|
-| **Traditional Approach** | Humans use tools; Agents are subordinate |
-| **The COCO Way** | Human × Agent equal collaboration — Agents are team members |
+| | Differentiator | Description |
+|---|---|---|
+| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with superior memory over Lobster/OpenClaw, built for enterprise scenarios |
+| 🔓 | **Open & Free** | Best models + best Agent frameworks — maximize Agent capability with zero vendor lock-in |
+| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) to maximize Agent team productivity |
+| 📋 | **Vertical Use Cases** | 101 industry cases / 101 profession cases / 1001 production cases — ready to deploy |
 
 ---
 
