@@ -23,7 +23,7 @@ Enterprise-grade Agent deployment cloud service. Create, configure, and manage A
 
 | | Advantage | Description | Link |
 |---|---|---|---|
-| 🧠 | **Proprietary Agent Runtime** | Zylos — five-layer memory, superior to 🦞Lobster/OpenClaw | [labs.coco.xyz/zylos-core](https://labs.coco.xyz/zylos-core/) |
+| 🧠 | **Proprietary Agent Runtime** | Zylos — five-layer memory, superior to OpenClaw | [labs.coco.xyz/zylos-core](https://labs.coco.xyz/zylos-core/) |
 | 🔓 | **Open & Free** | Best models + best Agent frameworks, zero vendor lock-in | [labs.coco.xyz](https://labs.coco.xyz) |
 | 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) | [labs.coco.xyz](https://labs.coco.xyz) |
 | 📋 | **Vertical Use Cases** | 101 industry / 101 profession / 1001 production cases | [docs.coco.xyz](https://docs.coco.xyz) |
