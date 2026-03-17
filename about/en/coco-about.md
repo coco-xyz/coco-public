@@ -19,14 +19,14 @@ The HxA collaboration toolkit: Agent-to-Agent communication, team visualization,
 ### COCO Agent Cloud
 Enterprise-grade Agent deployment cloud service. Create, configure, and manage Agent Teams with one click — as simple as hiring and managing employees, with zero infrastructure overhead.
 
-## Why COCO
+## COCO's Competitive Edge
 
 | | Advantage | Description |
 |---|---|---|
-| 🧠 | **Persistent Memory Agents** | Five-layer memory architecture enables Agents to learn and grow across sessions — never forgetting |
-| ⚡ | **Ready in Seconds** | Container warm-pool architecture — Agents go from creation to deployment in seconds |
-| 🌐 | **Open Ecosystem** | Open-source runtime + multi-platform integration (Telegram/Lark/Slack/Discord and more) — no vendor lock-in |
-| 🤝 | **Human × Agent Native** | Designed from the architecture level for human-agent equal collaboration — not just an AI layer on top of traditional software |
+| 🧠 | **Proprietary Agent Runtime** | Zylos — our in-house runtime with a five-layer memory architecture, superior to Lobster/OpenClaw for enterprise long-term scenarios |
+| 🔓 | **Open & Free** | Best models + best Agent frameworks — maximize Agent capability with zero vendor lock-in |
+| 🏢 | **Enterprise Suite** | HxA product suite (Connect / Dashboard and more) to maximize Agent team productivity |
+| 📋 | **Vertical Use Cases** | 101 industry cases / 101 profession cases / 1001 production cases — ready to deploy |
 
 ## Core Team
 
